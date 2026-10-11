@@ -33,6 +33,11 @@ concurrency:
   group: ansible-ci-${{ github.ref }}
   cancel-in-progress: true
 
+# Least privilege for the GITHUB_TOKEN: no job in this workflow
+# writes anything back to the repo.
+permissions:
+  contents: read
+
 jobs:
   yamllint:
     name: YAML Lint (format & syntax)
