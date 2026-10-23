@@ -1,20 +1,6 @@
 # AstroLumina-Ansible
 
-> **Documentația completă a proiectului se află în [Wiki](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki).**
->
-> Acest fișier conține doar o referință rapidă. Toate detaliile arhitecturale, ghidurile de deployment, configurațiile de securitate și diagramele Mermaid sunt publicate în Wiki pentru o navigare ușoară și versionare istorică.
+Ansible automation for the AstroLumina RKE2 cluster. See the [project Wiki](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki) for:
 
----
-
-## Quick Links
-
-- [Wiki Home](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki)
-- [Architecture](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Architecture) (dacă există)
-- [Development](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Development) (dacă există)
-- [Deployment](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Deployment) (dacă există)
-- [Security](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Security) (dacă există)
-
----
-
-*Ultima actualizare: 2026-10-23*
-
+- [Provisioning](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Provisioning) — inventory, variables, roles, and cluster bring-up.
+- [Operations](https://github.com/AstroLumina-Rise-n-Shine/AstroLumina-Ansible/wiki/Operations) — running playbooks, validation, and CI.
