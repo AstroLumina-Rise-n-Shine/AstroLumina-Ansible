@@ -1,3 +1,0 @@
----
-# Host-specific variables for rke2-worker-02
-hostname_override: "{{ rke2_worker_02_hostname }}"
