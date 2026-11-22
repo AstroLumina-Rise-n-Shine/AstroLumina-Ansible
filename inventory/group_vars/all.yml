@@ -4,25 +4,22 @@
 cluster_name: astrolumina
 deployment_environment: production
 
-p_name: daniel-pirvu
-p_cidr: 192.168.122.0/24
-
-rke2_cp_01_hostname: "rke2-cp-{{ p_name }}-01"
-rke2_cp_01_ip: "192.168.122.10"
-rke2_worker_01_hostname: "rke2-worker-{{ p_name }}-01"
-rke2_worker_01_ip: "192.168.122.11"
-rke2_worker_02_hostname: "rke2-worker-{{ p_name }}-02"
-rke2_worker_02_ip: "192.168.122.12"
+rke2_cp_01_hostname: "rke2-cp-01"
+rke2_cp_01_ip: "{{ hostvars[groups['control_planes'][0]]['ansible_default_ipv4']['address'] }}"
+rke2_wk_01_hostname: "rke2-wk-01"
+rke2_wk_01_ip: "{{ hostvars[groups['workers'][0]]['ansible_default_ipv4']['address'] }}"
+rke2_wk_02_hostname: "rke2-wk-02"
+rke2_wk_02_ip: "{{ hostvars[groups['workers'][1]]['ansible_default_ipv4']['address'] }}"
 
 etc_hosts_entries:
   - ip: "127.0.0.1"
     hostname: "{{ hostname_override | default(inventory_hostname) }}"
   - ip: "{{ rke2_cp_01_ip }}"
     hostname: "{{ rke2_cp_01_hostname }}"
-  - ip: "{{ rke2_worker_01_ip }}"
-    hostname: "{{ rke2_worker_01_hostname }}"
-  - ip: "{{ rke2_worker_02_ip }}"
-    hostname: "{{ rke2_worker_02_hostname }}"
+  - ip: "{{ rke2_wk_01_ip }}"
+    hostname: "{{ rke2_wk_01_hostname }}"
+  - ip: "{{ rke2_wk_02_ip }}"
+    hostname: "{{ rke2_wk_02_hostname }}"
 
 # ============================================================
 # RKE2 Airgap - Global Variables
@@ -36,7 +33,7 @@ rke2_token: "bbdf1f7c611f2d94ae2c556ef1287b1f4dada71ee5f9283be69b57798f5814b2"
 artifacts_local_path: "{{ playbook_dir | dirname }}/rke2-artifacts"
 artifacts_remote_path: "/opt/rke2-artifacts"
 
-rke2_server_ip: "{{ hostvars[groups['control_planes'][0]]['ansible_host'] }}"
+rke2_server_ip: "{{ hostvars[groups['control_planes'][0]]['ansible_default_ipv4']['address'] }}"
 
 rke2_api_port: 6443
 
